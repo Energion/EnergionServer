@@ -3,6 +3,7 @@ import IndexModel from '../models';
 
 import fs from 'fs';
 import tabletojson from 'tabletojson';
+import moment from 'moment';
 
 const router  = express.Router();
 
@@ -39,6 +40,7 @@ router.get('/get-dataset', function (req, res) {
       }
     }
     days = convertPricesToNumbers(days);
+    days = minifyDataset(days);
     res.json(days);
   });
 });
@@ -100,4 +102,15 @@ function convertPricesToNumbers (days) {
     })
   })
   return days;
+}
+
+function minifyDataset (days) {
+  let newDays = [];
+  days.forEach((day) => {
+    const date = day.date;
+    if (moment(date, 'DD-MM-YYYY').diff(moment(), 'days') >= 0) {
+      newDays.push(day);
+    }
+  })
+  return newDays;
 }
