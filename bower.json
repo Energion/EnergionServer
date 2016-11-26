@@ -1,0 +1,27 @@
+{
+  "name": "expressboilerplate",
+  "description": "Quick start for express app.",
+  "main": "app.js",
+  "authors": [
+    "Damir Mustafin"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "quick",
+    "start",
+    "node",
+    "express",
+    "application"
+  ],
+  "homepage": "https://github.com/frenchbread/express-boilerplate",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
