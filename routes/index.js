@@ -4,6 +4,7 @@ import IndexModel from '../models';
 import fs from 'fs';
 import tabletojson from 'tabletojson';
 import moment from 'moment';
+import _ from 'lodash'
 
 const router  = express.Router();
 
@@ -41,6 +42,7 @@ router.get('/get-dataset', function (req, res) {
     }
     days = convertPricesToNumbers(days);
     days = minifyDataset(days);
+    days = sortByDate(days);
     res.json(days);
   });
 });
@@ -113,4 +115,11 @@ function minifyDataset (days) {
     }
   })
   return newDays;
+}
+
+function sortByDate (days) {
+  return _.sortBy(days, function (day) {
+    const m = moment(day.date, 'DD-MM-YYYY')
+    return m.toDate();
+  })
 }
