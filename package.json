@@ -28,7 +28,8 @@
     "jade": "^1.9.2",
     "lusca": "^1.4.1",
     "morgan": "^1.6.1",
-    "serve-favicon": "^2.3.0"
+    "serve-favicon": "^2.3.0",
+    "tabletojson": "^0.4.0"
   },
   "repository": {
     "type": "git",
