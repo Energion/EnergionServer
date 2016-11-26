@@ -38,6 +38,7 @@ router.get('/get-dataset', function (req, res) {
         }
       }
     }
+    days = convertPricesToNumbers(days);
     res.json(days);
   });
 });
@@ -88,4 +89,15 @@ function getHours (hours, date) {
     })
   }
   return newHours;
+}
+
+function convertPricesToNumbers (days) {
+  days.forEach((day) => {
+    day.hours.forEach((hour) => {
+      const price = hour.price;
+      const replPrice = price.replace(',', '.');
+      hour.price = parseFloat(replPrice);
+    })
+  })
+  return days;
 }
