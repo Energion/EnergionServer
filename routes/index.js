@@ -110,7 +110,7 @@ function minifyDataset (days) {
   let newDays = [];
   days.forEach((day) => {
     const date = day.date;
-    if (moment(date, 'DD-MM-YYYY').diff(moment(), 'days') >= 0) {
+    if (moment(date, 'DD-MM-YYYY').diff(moment(), 'days') >= -1) {
       newDays.push(day);
     }
   })
